@@ -8,12 +8,7 @@
 
 import Foundation
 
-class NetworkManager {
-    func sendRequest(request: URLRequest) async throws -> Data {
-        // Skicka begäran och få responsdata
-        let (responseData, _) = try await URLSession.shared.data(for: request)
-        
-        // Returnera responsdata
-        return responseData
-    }
-}
+//class RequestBuilder {
+  //  private var apiKey:
+   // }
+//}
