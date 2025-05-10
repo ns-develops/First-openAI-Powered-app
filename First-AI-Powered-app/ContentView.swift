@@ -11,33 +11,44 @@ struct ContentView: View {
     @State private var inputText: String = ""
     @State private var responseText: String = ""
     @State private var isLoading: Bool = false
-    
+
     let aiService = AIService()
-    
+
     var body: some View {
-        VStack {
-            TextField("Enter your prompt", text:
-            $inputText)
-            .autocorrectionDisabled()
-            .padding()
-            .border(Color.gray)
+        VStack(spacing: 20) {
+            TextField("Enter your prompt", text: $inputText)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+
             
-            AsyncButton {
+            AsyncActionButton {
                 isLoading = true
-                responseText = await
-                aiService.getAIResponse(prompt:
-                inputText)
-            isLoading = false
+                responseText = await aiService.getAIResponse(prompt: inputText)
+                isLoading = false
             } label: {
-                Text("Ask AI")
-                    .padding()
-                    .background(isLoading ? Color.gray :
-                                    Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-                
+                HStack {
+                    if isLoading {
+                        ProgressView()
+                    }
+                    Text(isLoading ? "Loading..." : "Ask AI")
+                        .frame(maxWidth: .infinity)
+                }
+                .padding()
+                .background(isLoading ? Color.gray : Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(8)
             }
+            .disabled(inputText.isEmpty || isLoading)
+            .padding(.horizontal)
+
+            ScrollView {
+                Text(responseText)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+            }
+
+            Spacer()
         }
+        .padding()
     }
-        
 }

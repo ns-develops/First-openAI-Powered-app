@@ -1,11 +1,18 @@
+//
+//  AIService.swift
+//  First-AI-Powered-app
+//
+//  Created by Natalie S on 2025-05-10.
+//
 
 import Foundation
 
 class AIService {
-    private let networkManager = NetworkManager() // Din NetworkManager
-    private let requestBuilder = RequestBuilder() // Din RequestBuilder
+
+    private let networkManager = NetworkManager()
+    private let requestBuilder = RequestBuilder()
     private let errorMessage = "Error: Unable to generate AI response"
-    private let url = URL(string: "https://api.openai.com/v1/chat/completions")!
+    private let url = URL(string: "https://api.openai.com/v1/chat/completions")
 
     func getAIResponse(prompt: String) async -> String {
         guard let request = requestBuilder.buildRequest(prompt: prompt, url: url) else {
@@ -14,7 +21,8 @@ class AIService {
         }
         
         do {
-            let data = try await networkManager.sendRequest(request)
+         
+            let data = try await networkManager.sendRequest(request: request)
             return decodeResponse(data)
         } catch {
             print("[Error] Failed to send request: \(error.localizedDescription)")

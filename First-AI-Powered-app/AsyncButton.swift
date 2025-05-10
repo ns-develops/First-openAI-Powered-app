@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AsyncButton<Label: View>: View {
+struct AsyncActionButton<Label: View>: View {
     let action: () async -> Void
     let label: Label
     
@@ -18,7 +18,7 @@ struct AsyncButton<Label: View>: View {
         @ViewBuilder label: () -> Label
     ) {
         self.action = action
-        self.label label()
+        self.label = label()
     }
     
     var body: some View {
@@ -31,6 +31,6 @@ struct AsyncButton<Label: View>: View {
         } label: {
             label
         }
-        .disabled(isRunning)
+        .disabled(isRunning)  
     }
 }

@@ -7,14 +7,10 @@
 
 import Foundation
 
-class AIResponse {
-    
-    struct AIResponse: Codeable {
-        let id: String
-        let object: String
-        let created: Int
-        let model: String
-        let choices: [Choice]
-    }
-    
+struct AIResponse: Codable {
+    let id: String
+    let object: String
+    let created: Int
+    let model: String
+    let choices: [Choice]
 }
