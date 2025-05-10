@@ -29,9 +29,22 @@
 		705DBA472DCE44CF00EF7B47 /* First-AI-Powered-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "First-AI-Powered-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		705DBA632DCF443500EF7B47 /* Exceptions for "First-AI-Powered-app" folder in "First-AI-Powered-app" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AIService.swift,
+			);
+			target = 705DBA272DCE44CD00EF7B47 /* First-AI-Powered-app */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		705DBA2A2DCE44CD00EF7B47 /* First-AI-Powered-app */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				705DBA632DCF443500EF7B47 /* Exceptions for "First-AI-Powered-app" folder in "First-AI-Powered-app" target */,
+			);
 			path = "First-AI-Powered-app";
 			sourceTree = "<group>";
 		};
